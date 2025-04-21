@@ -5,23 +5,11 @@ A modern Android feed application that displays posts with smooth scrolling, pul
 
 ## Screenshots 📸
 
-<div style="display: flex; overflow-x: auto; gap: 24px; padding: 16px 0;">
-  <div style="text-align: center;">
-    <img src="images/posts_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
-    <strong>Post Feed</strong>
-  </div>
-  <div style="text-align: center;">
-    <img src="images/requests_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
-    <strong>Friend Requests</strong>
-  </div>
-  <div style="text-align: center;">
-    <img src="images/notification_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
-    <strong>Notifications</strong>
-  </div>
-  <div style="text-align: center;">
-    <img src="images/market_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
-    <strong>Marketplace</strong>
-  </div>
+<div style="display: flex; gap: 16px; overflow-x: auto; padding: 16px 0;">
+  <img src="images/posts_img.png" width="300" alt="Feed Screen" style="border-radius: 8px;">
+  <img src="images/requests_img.png" width="300" alt="Friend Requests" style="border-radius: 8px;">
+  <img src="images/notification_img.png" width="300" alt="Notifications" style="border-radius: 8px;">
+  <img src="images/market_img.png" width="300" alt="Marketplace" style="border-radius: 8px;">
 </div>
 
 ## Features ✨
