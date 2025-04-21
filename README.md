@@ -3,10 +3,26 @@
 
 A modern Android feed application that displays posts with smooth scrolling, pull-to-refresh, offline support, and efficient image loading. Built with Jetpack Compose components, Retrofit, Room, and Hilt.
 
-| ![Feed page using compose](images/posts_img.png) |
-| ![Friend request page](images/requests_img.png) |
-| ![Notification page](images/notification_img.png) |
-| ![Market place page](images/market_img.png) |
+## Screenshots 📸
+
+<div style="display: flex; overflow-x: auto; gap: 24px; padding: 16px 0;">
+  <div style="text-align: center;">
+    <img src="images/posts_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
+    <strong>Post Feed</strong>
+  </div>
+  <div style="text-align: center;">
+    <img src="images/requests_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
+    <strong>Friend Requests</strong>
+  </div>
+  <div style="text-align: center;">
+    <img src="images/notification_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
+    <strong>Notifications</strong>
+  </div>
+  <div style="text-align: center;">
+    <img src="images/market_img.png" width="280" style="border-radius: 12px; margin-bottom: 8px;"><br>
+    <strong>Marketplace</strong>
+  </div>
+</div>
 
 ## Features ✨
 - **Dynamic Feed**: Scrollable list of posts with declarative UI using Jetpack Compose
