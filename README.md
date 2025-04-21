@@ -1,4 +1,4 @@
-# community-app-compose-hilt-room
+# Jetpack-Compose-app
 
 
 A modern Android feed application that displays posts with smooth scrolling, pull-to-refresh, offline support, and efficient image loading. Built with Jetpack Compose components, Retrofit, Room, and Hilt.
