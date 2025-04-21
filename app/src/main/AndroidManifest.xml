@@ -17,9 +17,10 @@
         android:theme="@style/Theme.Hiltcomposeflowapp"
         tools:targetApi="31">
 
-        <activity
-            android:name=".features.users.view.UsersActivity"
-            android:exported="true" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY_HERE" />
+
         <activity
             android:name=".features.dashboard.views.DashboardActivity"
             android:exported="true"

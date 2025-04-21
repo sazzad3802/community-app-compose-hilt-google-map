@@ -1,6 +1,5 @@
 package com.shk.hilt_compose_flow_app.features.dashboard.views
 
-import dagger.hilt.android.HiltAndroidApp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,13 +7,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.Home
@@ -23,7 +19,6 @@ import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Store
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.*
@@ -33,13 +28,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.shk.hilt_compose_flow_app.ui.theme.HiltcomposeflowappTheme
-import com.shk.hilt_compose_flow_app.R
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import com.shk.hilt_compose_flow_app.features.friendRequest.views.FriendRequestScreen
+import com.shk.hilt_compose_flow_app.features.home.views.HomeScreen
+import com.shk.hilt_compose_flow_app.features.marketPlace.views.MarketPlaceScreen
+import com.shk.hilt_compose_flow_app.features.notification.views.NotificationScreen
+import com.shk.hilt_compose_flow_app.features.travelList.views.TravelDestScreen
 import com.shk.hilt_compose_flow_app.utils.noRippleClickable
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +47,6 @@ class DashboardActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             HiltcomposeflowappTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -66,13 +63,31 @@ class DashboardActivity : ComponentActivity() {
 fun CommunityContent() {
     var currentTab by remember { mutableStateOf(TabItem.Home) }
 
+    val appBarTitle = when (currentTab) {
+        TabItem.Home -> "Community"
+        TabItem.Friends -> "Friend requests"
+        TabItem.Travel -> "Travel Plans"
+        TabItem.Marketplace -> "Marketplace"
+        TabItem.Notifications -> "Notifications"
+    }
+
     Scaffold(
         topBar = {
             Column {
-                TopAppBar(title = { Text("Community") })
+                TopAppBar(title = { Text(appBarTitle) },
+                    actions = {
+                        // Search icon button
+                        IconButton(
+                            onClick = { /* Handle search action */ }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = "Search"
+                            )
+                        }
+                    },)
                 Surface(color = Color.LightGray) {
                     TabRow(
-
                         selectedTabIndex = currentTab.ordinal,
                         modifier = Modifier.height(40.dp),
                         divider = {},
@@ -111,8 +126,8 @@ fun CommunityContent() {
                     TabItem.Home -> HomeScreen()
                     TabItem.Friends -> FriendRequestScreen()
                     TabItem.Travel -> TravelDestScreen()
-                    TabItem.Marketplace -> MarketplaceScreen()
-                    TabItem.Notifications -> NotificationsScreen()
+                    TabItem.Marketplace -> MarketPlaceScreen()
+                    TabItem.Notifications -> NotificationScreen()
                 }
             }
         }
@@ -149,75 +164,7 @@ private fun CenteredTabContent(
     }
 }
 
-@Composable
-fun HomeScreen() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
-    ) {
-        Text(
-            text = "Home Feed",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
 
-@Composable
-fun FriendRequestScreen() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Friends Requests",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
-
-@Composable
-fun TravelDestScreen() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Travel Plans",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
-
-@Composable
-fun MarketplaceScreen() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Marketplace",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
-
-@Composable
-fun NotificationsScreen() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Notifications",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
 
 enum class TabItem(
     val title: String,
